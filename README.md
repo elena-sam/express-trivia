@@ -17,7 +17,7 @@ Importer le script test/trivia.sql dans MySQL
 `./authentication`:
 * `index.js` définis et exporte le `Router` des routes de la ressource `authentication`.
 * `authentication.service.js` définis et exporte plusieurs fonctions pour la manipulation des données en base.
-* `passport.strategy.js` définis des middlewares et stragegies utilisés pour l'authentification. Il y aura deux local stratégies `signup` et `signin`, et une stratégie JWT.
+* `passport.strategy.js` définis des middlewares et stragegies utilisés pour l'authentification. Il y aura deux local stratégies `signup` et `signin`, et une stratégie `jwt`.
 
 ### Create Read Update Delete => questions
 * une route GET `/api/questions` pour récupérer l'ensemble des questions, renvoyer le code 200 si succès.
