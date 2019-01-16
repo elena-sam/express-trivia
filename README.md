@@ -35,3 +35,5 @@ La sécurité sera mis en oeuvre via JWT.
 * la route POST `/api/questions` doit être sécurisé avec la stratégie JWT.
 * la route DELETE `/api/questions/:id` doit être sécurisé avec la stratégie JWT.
 * la route PUT `/api/questions/:id` doit être sécurisé avec la stratégie JWT.
+
+## ATTENTION : AUCUNE REQUETE SQL NE DOIT ËTRE ECRITE DANS LES SCRIPTS CONTENTANT LES ROUTES !!!! LES REQUËTES SQL SONT DEFINIS ET EXPORTE DANS LES SCRIPTS *.service.js
