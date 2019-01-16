@@ -40,17 +40,17 @@ La sécurité sera mis en oeuvre via JWT.
 
 
 ### ATTENTION : AUCUNE REQUETE SQL NE DOIT ËTRE ECRITE DANS LES SCRIPTS CONTENTANT LES ROUTES !!!! LES REQUËTES SQL SONT DEFINIS ET EXPORTE DANS LES SCRIPTS *.service.js
-### NodeJS 
+### RESSOURCES : NodeJS 
 * [Environment variables](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786)
 * [Logging in NodeJS](https://www.digitalocean.com/community/tutorials/how-to-use-winston-to-log-node-js-applications)
 * [Winston logger](https://github.com/winstonjs/winston#readme)
-### RESSOURCES PROMISE et ASYNC/AWAIT
+### RESSOURCES : PROMISE et ASYNC/AWAIT
 * [Promises, async/await (A LIRE!)](https://javascript.info/async)
 * [Projet d'exemple](https://github.com/maxdhn/node-trivia)
 * [NodeJS Mysql](https://www.ghadeer.io/nodejs-mysql)
 * [NodeJS Async/Await and Promise](https://medium.com/@tkssharma/writing-neat-asynchronous-node-js-code-with-promises-async-await-fa8d8b0bcd7c)
 * [Another blog about async/await and promises](https://hackernoon.com/javascript-promises-and-why-async-await-wins-the-battle-4fc9d15d509f)
-### RESSOURCES JWT
+### RESSOURCES : Json Web Token
 * [Projet d'exemple](https://github.com/maxdhn/jwt-express)
 * [Configure : Strategies & Verify Callback](http://www.passportjs.org/docs/configure/)
 * [Passport Local Strategy](https://github.com/jaredhanson/passport-local)
