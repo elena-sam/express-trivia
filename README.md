@@ -44,6 +44,7 @@ La sécurité sera mis en oeuvre via JWT.
 * [Environment variables](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786)
 * [Logging in NodeJS](https://www.digitalocean.com/community/tutorials/how-to-use-winston-to-log-node-js-applications)
 * [Winston logger](https://github.com/winstonjs/winston#readme)
+* [Winston logger tuto](https://thisdavej.com/using-winston-a-versatile-logging-library-for-node-js/) 
 ### RESSOURCES : PROMISE et ASYNC/AWAIT
 * [Promises, async/await (A LIRE!)](https://javascript.info/async)
 * [Projet d'exemple](https://github.com/maxdhn/node-trivia)
