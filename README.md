@@ -1,7 +1,7 @@
 # express-trivia
 
 ### Import de la base de donnée
-Importer le script test/trivia.sql dans MySQL
+Importer le script test/db/trivia.sql dans MySQL
 
 ### Structure du répertoire
 
