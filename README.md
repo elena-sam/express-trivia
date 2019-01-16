@@ -30,8 +30,8 @@ Importer le script test/trivia.sql dans MySQL
 ### Signin/Signup et sécurité => authentication
 La sécurité sera mis en oeuvre via JWT.
 
-* une route POST `/api/auth/signup` pour créer un nouvelle utilisateur en base.
-* une route POST `/api/auth/signin` pour logger un utilisateur et lui renvoyer son JWT.
+* une route POST `/api/auth/signup` pour créer un nouvelle utilisateur en base, renvoyer 201 si l'utilisateur à été créer ou 400 si l'utilisateur existe déjà.
+* une route POST `/api/auth/signin` pour logger un utilisateur et lui renvoyer 200 et son JWT ou 401 si l'authentification échoue.
 * la route POST `/api/questions` doit être sécurisé avec la stratégie JWT.
 * la route DELETE `/api/questions/:id` doit être sécurisé avec la stratégie JWT.
 * la route PUT `/api/questions/:id` doit être sécurisé avec la stratégie JWT.
