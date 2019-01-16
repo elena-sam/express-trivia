@@ -42,13 +42,14 @@ La sécurité sera mis en oeuvre via JWT.
 ### ATTENTION : AUCUNE REQUETE SQL NE DOIT ËTRE ECRITE DANS LES SCRIPTS CONTENTANT LES ROUTES !!!! LES REQUËTES SQL SONT DEFINIS ET EXPORTE DANS LES SCRIPTS *.service.js
 
 ### RESSOURCES PROMISE et ASYNC/AWAIT
-* [Projet d'exemple](https://github.com/maxdhn/node-trivia)\
-* [NodeJS Mysql](https://www.ghadeer.io/nodejs-mysql)\
+* [Promises, async/await (A LIRE!)](https://javascript.info/async)
+* [Projet d'exemple](https://github.com/maxdhn/node-trivia)
+* [NodeJS Mysql](https://www.ghadeer.io/nodejs-mysql)
 * [NodeJS Async/Await and Promise](https://medium.com/@tkssharma/writing-neat-asynchronous-node-js-code-with-promises-async-await-fa8d8b0bcd7c)
-
+* [Another blog about async/await and promises](https://hackernoon.com/javascript-promises-and-why-async-await-wins-the-battle-4fc9d15d509f)
 ### RESSOURCES JWT
-* [Projet d'exemple](https://github.com/maxdhn/jwt-express)\
-* [Configure : Strategies & Verify Callback](http://www.passportjs.org/docs/configure/)\
-* [Passport Local Strategy](https://github.com/jaredhanson/passport-local)\
-* [Passport Jwt Strategy](https://github.com/themikenicholson/passport-jwt)\
+* [Projet d'exemple](https://github.com/maxdhn/jwt-express)
+* [Configure : Strategies & Verify Callback](http://www.passportjs.org/docs/configure/)
+* [Passport Local Strategy](https://github.com/jaredhanson/passport-local)
+* [Passport Jwt Strategy](https://github.com/themikenicholson/passport-jwt)
 * [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
