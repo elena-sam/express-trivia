@@ -1,5 +1,5 @@
 # express-trivia
-
+**Objectif** : refaire le backend de cette API : https://opentdb.com/
 ### Import de la base de donnée
 Importer le script test/db/trivia.sql dans MySQL
 
