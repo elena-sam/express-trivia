@@ -1,5 +1,5 @@
 # express-trivia
-**Objectif** : refaire le backend de cette API : https://opentdb.com/
+**Objectif** : refaire le backend de l'API : https://opentdb.com/
 ### Import de la base de donnée
 Importer le script test/db/trivia.sql dans MySQL
 
@@ -109,6 +109,24 @@ Les routes suivantes doivent être sécurisé avec la stratégie JWT de passport
 * DELETE `/api/categories/:id`
 * PUT `/api/categories/:id`
 
+## Middleware d'erreurs
+
+La gestion des erreurs devra se faire un middleware dédié à cette usage. Chaque erreur détécté dans un service ou une route sera déléguée au middleware d'erreur, les codes retour http d'erreur (>= 400) ne seront plus renvoyé les routes mais par ce middleware.
+
+## Logger
+
+L'utilisation d'un logger permet d'éviter l'utilisation de `console.log` qui reste pauvre en fonctionnalité et l'ensemble des informations loggé ne sont accessibles qu'à travers le process.
+Le logging permet de conserver une trace des erreurs/exceptions qui sont levées dans l'application et des différents événements anormaux ou normaux liés à l'exécution de l'application.
+Le logging permet de gérer des messages émis par une application durant son exécution et de permettre leur exploitation immédiate ou a posteriori. Le loggin permet par exemple de résoudre une anomalie en retracant l'ensemble des événements qui l'ont déclenché.  
+
+Il existe plusieurs niveau d'erreur, les principaux sont :
+* error : utilisé pour loggé des erreur
+* warn : log des informations relatifs a un comportement innatendu
+* info : log les informations "générales" (démarrage de serveur, service, etc)
+* debug : log des informations utile au debug d'une application.
+
+Il existe d'autre niveaux de logging (peut varié selon les languages). Avec NodeJs on utilisera le logger [winston](https://github.com/winstonjs/winston), les logs seront écrit dans la console et dans deux fichiers.
+Un fichier contiendra les erreurs et l'autre contiendra tous les niveaux de logging (y compris error). 
 
 ### ATTENTION : AUCUNE REQUETE SQL NE DOIT ETRE ECRITE DANS LES SCRIPTS CONTENTANT LES ROUTES !!!! LES REQUETES SQL SONT DEFINIS ET EXPORTE DANS LES SCRIPTS *.service.js
 ### RESSOURCES : NodeJS 
