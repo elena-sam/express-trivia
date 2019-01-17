@@ -3,7 +3,9 @@
 ### Import de la base de donnée
 Importer le script test/db/trivia.sql dans MySQL
 
-### Structure du répertoire
+![model sql](https://i.ibb.co/xG219Bf/model.png)
+
+### Structure des répertoires
 
 `./config` :
 * `connection.js` initialise et exporte la connection à la base de donnée MySQL.
@@ -12,7 +14,13 @@ Importer le script test/db/trivia.sql dans MySQL
 
 `./questions`:
 * `index.js` définis et exporte le `Router` des routes de la ressource `question`.
+* `question.controller.js` définis et exporte les routes de la ressource `question`.
 * `question.service.js` définis et exporte plusieurs fonctions pour la manipulation des données de la table `questions` en base.
+
+`./categories`:
+* `index.js` définis et exporte le `Router` des routes de la ressource `category`.
+* `category.controller.js` définis et exporte les routes de la ressource `category`.
+* `category.service.js` définis et exporte plusieurs fonctions pour la manipulation des données de la table `categories` en base.
 
 `./authentication`:
 * `index.js` définis et exporte le `Router` des routes de la ressource `authentication`.
@@ -22,24 +30,86 @@ Importer le script test/db/trivia.sql dans MySQL
 ### ATTENTION : LES SERVICES DOIVENT RETOURNER DES PROMISES ! VOUS UTILISEREZ DONC ASYNC/AWAIT OU THEN/CATCH POUR LE TRAITEMENT DU RESULTAT LORSQUE VOUS FEREZ APPEL AUX FONCTIONS RETOURANT DES PROMISES.
 
 ### Create Read Update Delete => questions
-* une route GET `/api/questions` pour récupérer l'ensemble des questions, renvoyer le code 200 si succès.
-* une route POST `/api/questions` pour la création de question et renvoyer la questions inséré en base à l'utilisateur (avec l'id), renvoyer le code 201 si succès, ou 400 si les données ne sont pas correcte pour l'enregistrement, 500 si il s'agit d'une erreur du serveur.
-* une route PUT `/api/questions/:id` pour la mise a jour de question et renvoyer la questions inséré en base à l'utilisateur (avec l'id), renvoyer le code 201 si succès, ou 404 si la question ayant l'ID en paramètre n'existe pas, ou 400 si les données ne sont pas correcte pour l'enregistrement, 500 si il s'agit d'une erreur du serveur.
-* une route GET `/api/questions/:id` pour récupérer une question correspondant à l'id en paramètre, renvoyer le code 200 si succès, ou 404 si la question ayant l'ID en paramètre n'existe pas, ou 400 si les données ne sont pas correcte pour la récupération, 500 si il s'agit d'une erreur du serveur.
-* une route DELETE `/api/questions/:id` pour supprimer une question correspondant à l'id en paramètre, renvoyer le code 204 si succès, ou 404 si la question ayant l'ID en paramètre n'existe pas, ou 400 si les données ne sont pas correcte pour la récupération, 500 si il s'agit d'une erreur du serveur.
-* un middleware global pour la gestion des erreurs.
+Une route GET `/api/questions` :
+* retourne l'ensemble des questions à l'utilisateur.
+* retourne le code 200 si succès.
+
+Une route POST `/api/questions` :
+* insère une question en base.
+* retourne la questions inséré en base à l'utilisateur (avec l'id).
+* retourne le code 201 si succès.
+* retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
+* retourne le code 500 en cas d'erreur du serveur.
+
+Une route PUT `/api/questions/:id` :
+* mise à jour d'une question en base
+* retourne la questions modifié en base à l'utilisateur (avec l'id).
+* retourne le code 200 si succès.
+* retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
+* retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
+* retourne le code 500 en cas d'erreur du serveur.
+
+Une route DELETE `/api/questions/:id`:
+* supprime une question en base
+* retourne le code 204 si succès.
+* retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
+* retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
+* retourne le code 500 en cas d'erreur du serveur.
+
+
+### Create Read Update Delete => categories
+Une route GET `/api/categories` :
+* retourne l'ensemble des categories à l'utilisateur.
+* retourne le code 200 si succès.
+
+Une route POST `/api/categories` :
+* insère une categories en base.
+* retourne la categories inséré en base à l'utilisateur (avec l'id).
+* retourne le code 201 si succès.
+* retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
+* retourne le code 500 en cas d'erreur du serveur.
+
+Une route PUT `/api/categories/:id` :
+* mise à jour d'une question en base
+* retourne la categories modifié en base à l'utilisateur (avec l'id).
+* retourne le code 200 si succès.
+* retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
+* retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
+* retourne le code 500 en cas d'erreur du serveur.
+
+Une route DELETE `/api/categories/:id`:
+* supprime une question en base.
+* retourne le code 204 si succès.
+* retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
+* retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
+* retourne le code 500 en cas d'erreur du serveur.
 
 ### Signin/Signup et sécurité => authentication
 La sécurité sera mis en oeuvre via JWT.
 
-* une route POST `/api/auth/signup` pour créer un utilisateur en base, renvoyer 201 si l'utilisateur à été créer ou 400 si l'utilisateur existe déjà.
-* une route POST `/api/auth/signin` pour logger un utilisateur et lui renvoyer 200 et son JWT ou 401 si l'authentification échoue.
-* la route POST `/api/questions` doit être sécurisé avec la stratégie JWT.
-* la route DELETE `/api/questions/:id` doit être sécurisé avec la stratégie JWT.
-* la route PUT `/api/questions/:id` doit être sécurisé avec la stratégie JWT.
+Une route POST `/api/auth/signup` :
+* créer un utilisateur en base.
+* retourne le code 201 si l'utilisateur à été créer.
+* retourne le code 400 si l'utilisateur existe déjà.
+* retourne le code 500 en cas d'erreur du serveur.
+
+Une route POST `/api/auth/signin` :
+* récupère en base l'utilisateur et vérifie le mot de passe.
+* génère et retourne un JWT si la vérification est OK.
+* retourne le code 200 si si la vérification est OK.
+* retourne le code 401 si l'utilisateur n'existe pas.
+* retourne le code 401 si le mot de passe est incorrects.
+
+Les routes suivantes doivent être sécurisé avec la stratégie JWT de passport :
+* POST `/api/questions`
+* DELETE `/api/questions/:id`
+* PUT `/api/questions/:id`
+* POST `/api/categories`
+* DELETE `/api/categories/:id`
+* PUT `/api/categories/:id`
 
 
-### ATTENTION : AUCUNE REQUETE SQL NE DOIT ËTRE ECRITE DANS LES SCRIPTS CONTENTANT LES ROUTES !!!! LES REQUËTES SQL SONT DEFINIS ET EXPORTE DANS LES SCRIPTS *.service.js
+### ATTENTION : AUCUNE REQUETE SQL NE DOIT ETRE ECRITE DANS LES SCRIPTS CONTENTANT LES ROUTES !!!! LES REQUETES SQL SONT DEFINIS ET EXPORTE DANS LES SCRIPTS *.service.js
 ### RESSOURCES : NodeJS 
 * [Correction Checkpoint (découpe controller/service)](https://github.com/WildCodeSchool/promo-0918-checkpoint3-js/tree/tours-correction)
 * [Environment variables](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786)
