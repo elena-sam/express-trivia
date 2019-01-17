@@ -9,7 +9,7 @@ Importer le script test/db/trivia.sql dans MySQL
 
 `./config` :
 * `connection.js` initialise et exporte la connection à la base de donnée MySQL.
-* `environement.js` récupère et exporte l'ensemble des variables d'environements (user/pwd/db... mysql, secret/iat... pour jwt, fichier de logs...)
+* `environement.js` récupère et exporte l'ensemble des variables d'environements (user/pwd/db... mysql, secret/iat... pour jwt, chemin des fichiers de logs...)
 * `logger.js` initilise et exporte un logger pour node.
 
 `./questions`:
@@ -29,6 +29,24 @@ Importer le script test/db/trivia.sql dans MySQL
 * `passport.strategy.js` définis des middlewares et stragegies utilisés pour l'authentification. Il y aura deux local stratégies `signup` et `signin`, et une stratégie `jwt`.
 
 ### ATTENTION : LES SERVICES DOIVENT RETOURNER DES PROMISES ! VOUS UTILISEREZ DONC ASYNC/AWAIT OU THEN/CATCH POUR LE TRAITEMENT DU RESULTAT LORSQUE VOUS FEREZ APPEL AUX FONCTIONS RETOURANT DES PROMISES.
+
+### ATTENTION : AUCUNE REQUETE SQL NE DOIT ETRE ECRITE DANS LES SCRIPTS CONTENTANT LES ROUTES !!!! LES REQUETES SQL SONT DEFINIS ET EXPORTE DANS LES SCRIPTS *.service.js
+
+## Logger
+
+L'utilisation d'un logger permet d'éviter l'utilisation de `console.log` qui reste pauvre en fonctionnalité et l'ensemble des informations loggé ne sont accessibles qu'à travers le process.
+Le logging permet de conserver une trace des erreurs/exceptions qui sont levées dans l'application et des différents événements anormaux ou normaux liés à l'exécution de l'application.
+Le logging permet de gérer des messages émis par une application durant son exécution et de permettre leur exploitation immédiate ou a posteriori. Le loggin permet par exemple de résoudre une anomalie en retracant l'ensemble des événements qui l'ont déclenché.  
+
+Il existe plusieurs niveau d'erreur, les principaux sont :
+* error : utilisé pour loggé des erreur
+* warn : log des informations relatifs a un comportement innatendu
+* info : log les informations "générales" (démarrage de serveur, service, etc)
+* debug : log des informations utile au debug d'une application.
+
+Avec NodeJs on utilisera le logger [winston](https://github.com/winstonjs/winston), les logs seront écrit dans la console et dans deux fichiers :
+* `error.log` contiendra toutes les erreurs loggé de l'application.
+* `combined.log` contiendra tous les niveaux de logging (y compris error).
 
 ### Create Read Update Delete => questions
 Une route GET `/api/questions` :
@@ -56,7 +74,6 @@ Une route DELETE `/api/questions/:id`:
 * retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
 * retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
 * retourne le code 500 en cas d'erreur du serveur.
-
 
 ### Create Read Update Delete => categories
 Une route GET `/api/categories` :
@@ -113,22 +130,6 @@ Les routes suivantes doivent être sécurisé avec la stratégie JWT de passport
 
 La gestion des erreurs devra se faire un middleware dédié à cette usage. Chaque erreur détécté dans un service ou une route sera déléguée au middleware d'erreur, les codes retour http d'erreur (>= 400) ne seront plus renvoyé les routes mais par ce middleware.
 
-## Logger
-
-L'utilisation d'un logger permet d'éviter l'utilisation de `console.log` qui reste pauvre en fonctionnalité et l'ensemble des informations loggé ne sont accessibles qu'à travers le process.
-Le logging permet de conserver une trace des erreurs/exceptions qui sont levées dans l'application et des différents événements anormaux ou normaux liés à l'exécution de l'application.
-Le logging permet de gérer des messages émis par une application durant son exécution et de permettre leur exploitation immédiate ou a posteriori. Le loggin permet par exemple de résoudre une anomalie en retracant l'ensemble des événements qui l'ont déclenché.  
-
-Il existe plusieurs niveau d'erreur, les principaux sont :
-* error : utilisé pour loggé des erreur
-* warn : log des informations relatifs a un comportement innatendu
-* info : log les informations "générales" (démarrage de serveur, service, etc)
-* debug : log des informations utile au debug d'une application.
-
-Il existe d'autre niveaux de logging (peut varié selon les languages). Avec NodeJs on utilisera le logger [winston](https://github.com/winstonjs/winston), les logs seront écrit dans la console et dans deux fichiers.
-Un fichier contiendra les erreurs et l'autre contiendra tous les niveaux de logging (y compris error). 
-
-### ATTENTION : AUCUNE REQUETE SQL NE DOIT ETRE ECRITE DANS LES SCRIPTS CONTENTANT LES ROUTES !!!! LES REQUETES SQL SONT DEFINIS ET EXPORTE DANS LES SCRIPTS *.service.js
 ### RESSOURCES : NodeJS 
 * [Correction Checkpoint (découpe controller/service)](https://github.com/WildCodeSchool/promo-0918-checkpoint3-js/tree/tours-correction)
 * [Environment variables](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786)
