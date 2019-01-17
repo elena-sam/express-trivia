@@ -14,16 +14,17 @@ Importer le script test/db/trivia.sql dans MySQL
 
 `./questions`:
 * `index.js` définis et exporte le `Router` des routes de la ressource `question`.
-* `question.controller.js` définis et exporte les routes de la ressource `question`.
+* `question.controller.js` définis et exporte les routes (fonctions) de la ressource `question`.
 * `question.service.js` définis et exporte plusieurs fonctions pour la manipulation des données de la table `questions` en base.
 
 `./categories`:
 * `index.js` définis et exporte le `Router` des routes de la ressource `category`.
-* `category.controller.js` définis et exporte les routes de la ressource `category`.
+* `category.controller.js` définis et exporte les routes (fonctions) de la ressource `category`.
 * `category.service.js` définis et exporte plusieurs fonctions pour la manipulation des données de la table `categories` en base.
 
 `./authentication`:
 * `index.js` définis et exporte le `Router` des routes de la ressource `authentication`.
+* `authentication.controller.js` définis et exporte les routes (fonctions) de la ressource `authentication`.
 * `authentication.service.js` définis et exporte plusieurs fonctions pour la manipulation des données de la table `users` en base.
 * `passport.strategy.js` définis des middlewares et stragegies utilisés pour l'authentification. Il y aura deux local stratégies `signup` et `signin`, et une stratégie `jwt`.
 
