@@ -1,5 +1,16 @@
-# express-trivia
+# express-trivia <!-- omit in toc -->
 **Objectif** : refaire le backend de l'API : https://opentdb.com/
+
+- [Import de la base de donnée](#import-de-la-base-de-donn%C3%A9e)
+- [Structure des répertoires](#structure-des-r%C3%A9pertoires)
+- [Logger](#logger)
+- [Create Read Update Delete => questions](#create-read-update-delete--questions)
+- [Create Read Update Delete => categories](#create-read-update-delete--categories)
+- [Signin/Signup et sécurité => authentication](#signinsignup-et-s%C3%A9curit%C3%A9--authentication)
+- [Middleware d'erreurs](#middleware-derreurs)
+- [Ressources : NodeJS](#ressources--nodejs)
+- [Ressources : Promise et Async/Await](#ressources--promise-et-asyncawait)
+- [Ressources : Json Web Token](#ressources--json-web-token)
 ### Import de la base de donnée
 Importer le script test/db/trivia.sql dans MySQL
 
@@ -28,11 +39,11 @@ Importer le script test/db/trivia.sql dans MySQL
 * `authentication.service.js` définis et exporte plusieurs fonctions pour la manipulation des données de la table `users` en base.
 * `passport.strategy.js` définis des middlewares et stratégies utilisés pour l'authentification. Il y aura deux local stratégies `signup` et `signin`, et une stratégie `jwt`.
 
-### ATTENTION : LES SERVICES DOIVENT RETOURNER DES PROMISES ! VOUS UTILISEREZ DONC ASYNC/AWAIT OU THEN/CATCH POUR LE TRAITEMENT DU RESULTAT LORSQUE VOUS FEREZ APPEL AUX FONCTIONS RETOURANT DES PROMISES.
+### ATTENTION : LES SERVICES DOIVENT RETOURNER DES PROMISES ! VOUS UTILISEREZ DONC ASYNC/AWAIT OU THEN/CATCH POUR LE TRAITEMENT DU RESULTAT LORSQUE VOUS FEREZ APPEL AUX FONCTIONS RETOURANT DES PROMISES.<!-- omit in toc -->
 
-### ATTENTION : AUCUNE REQUETE SQL NE DOIT ETRE ECRITE DANS LES SCRIPTS CONTENTANT LES ROUTES !!!! LES REQUETES SQL SONT DEFINIS ET EXPORTE DANS LES SCRIPTS *.service.js
+### ATTENTION : AUCUNE REQUETE SQL NE DOIT ETRE ECRITE DANS LES SCRIPTS CONTENTANT LES ROUTES !!!! LES REQUETES SQL SONT DEFINIS ET EXPORTE DANS LES SCRIPTS *.service.js<!-- omit in toc -->
 
-## Logger
+### Logger
 
 L'utilisation d'un logger permet d'éviter l'utilisation de `console.log` qui reste pauvre en fonctionnalité et l'ensemble des informations loggé ne sont accessibles qu'à travers le process.
 Le logging permet de conserver une trace des erreurs/exceptions qui sont levées dans l'application et des différents événements anormaux ou normaux liés à l'exécution de l'application.
