@@ -8,9 +8,9 @@ Importer le script test/db/trivia.sql dans MySQL
 ### Structure des répertoires
 
 `./config` :
-* `connection.js` initialise et exporte la connection à la base de donnée MySQL.
-* `environement.js` récupère et exporte l'ensemble des variables d'environements (user/pwd/db... mysql, secret/iat... pour jwt, chemin des fichiers de logs...)
-* `logger.js` initilise et exporte un logger pour node.
+* `connection.js` initialise et exporte la connexion à la base de donnée MySQL.
+* `environement.js` récupère et exporte l'ensemble des variables d'environnements (user/pwd/db... mysql, secret/iat... pour jwt, chemin des fichiers de logs...)
+* `logger.js` initialise et exporte un logger pour node.
 
 `./questions`:
 * `index.js` définis et exporte le `Router` des routes de la ressource `question`.
@@ -26,7 +26,7 @@ Importer le script test/db/trivia.sql dans MySQL
 * `index.js` définis et exporte le `Router` des routes de la ressource `authentication`.
 * `authentication.controller.js` définis et exporte les routes (fonctions) de la ressource `authentication`.
 * `authentication.service.js` définis et exporte plusieurs fonctions pour la manipulation des données de la table `users` en base.
-* `passport.strategy.js` définis des middlewares et stragegies utilisés pour l'authentification. Il y aura deux local stratégies `signup` et `signin`, et une stratégie `jwt`.
+* `passport.strategy.js` définis des middlewares et stratégies utilisés pour l'authentification. Il y aura deux local stratégies `signup` et `signin`, et une stratégie `jwt`.
 
 ### ATTENTION : LES SERVICES DOIVENT RETOURNER DES PROMISES ! VOUS UTILISEREZ DONC ASYNC/AWAIT OU THEN/CATCH POUR LE TRAITEMENT DU RESULTAT LORSQUE VOUS FEREZ APPEL AUX FONCTIONS RETOURANT DES PROMISES.
 
@@ -36,7 +36,7 @@ Importer le script test/db/trivia.sql dans MySQL
 
 L'utilisation d'un logger permet d'éviter l'utilisation de `console.log` qui reste pauvre en fonctionnalité et l'ensemble des informations loggé ne sont accessibles qu'à travers le process.
 Le logging permet de conserver une trace des erreurs/exceptions qui sont levées dans l'application et des différents événements anormaux ou normaux liés à l'exécution de l'application.
-Le logging permet de gérer des messages émis par une application durant son exécution et de permettre leur exploitation immédiate ou a posteriori. Le loggin permet par exemple de résoudre une anomalie en retracant l'ensemble des événements qui l'ont déclenché.  
+Le logging permet de gérer des messages émis par une application durant son exécution et de permettre leur exploitation immédiate ou a posteriori. Le loggin permet par exemple de résoudre une anomalie en retraçant l'ensemble des événements qui l'ont déclenché.  
 
 Il existe plusieurs niveau d'erreur, les principaux sont :
 * error : utilisé pour loggé des erreur
@@ -44,7 +44,7 @@ Il existe plusieurs niveau d'erreur, les principaux sont :
 * info : log les informations "générales" (démarrage de serveur, service, etc)
 * debug : log des informations utile au debug d'une application.
 
-Avec NodeJs on utilisera le logger [winston](https://github.com/winstonjs/winston), les logs seront écrit dans la console et dans deux fichiers :
+Avec NodeJs on utilisera le logger [winston](https://github.com/winstonjs/winston), les logs seront écrits dans la console et dans deux fichiers :
 * `error.log` contiendra toutes les erreurs loggé de l'application.
 * `combined.log` contiendra tous les niveaux de logging (y compris error).
 
@@ -57,21 +57,21 @@ Une route POST `/api/questions` :
 * insère une question en base.
 * retourne la questions inséré en base à l'utilisateur (avec l'id).
 * retourne le code 201 si succès.
-* retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
+* retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
 * retourne le code 500 en cas d'erreur du serveur.
 
 Une route PUT `/api/questions/:id` :
 * mise à jour d'une question en base
 * retourne la questions modifié en base à l'utilisateur (avec l'id).
 * retourne le code 200 si succès.
-* retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
+* retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
 * retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
 * retourne le code 500 en cas d'erreur du serveur.
 
 Une route DELETE `/api/questions/:id`:
 * supprime une question en base
 * retourne le code 204 si succès.
-* retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
+* retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
 * retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
 * retourne le code 500 en cas d'erreur du serveur.
 
@@ -81,42 +81,42 @@ Une route GET `/api/categories` :
 * retourne le code 200 si succès.
 
 Une route POST `/api/categories` :
-* insère une categories en base.
+* insère une categorie en base.
 * retourne la categories inséré en base à l'utilisateur (avec l'id).
 * retourne le code 201 si succès.
-* retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
+* retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
 * retourne le code 500 en cas d'erreur du serveur.
 
 Une route PUT `/api/categories/:id` :
-* mise à jour d'une question en base
+* mise à jour d'une categorie en base
 * retourne la categories modifié en base à l'utilisateur (avec l'id).
 * retourne le code 200 si succès.
-* retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
+* retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
 * retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
 * retourne le code 500 en cas d'erreur du serveur.
 
 Une route DELETE `/api/categories/:id`:
-* supprime une question en base.
+* supprime une categorie en base.
 * retourne le code 204 si succès.
-* retourne le code 400 si les données ne sont pas correcte pour l'enregistrement.
+* retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
 * retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
 * retourne le code 500 en cas d'erreur du serveur.
 
 ### Signin/Signup et sécurité => authentication
-La sécurité sera mis en oeuvre via JWT.
+La sécurité sera mise en oeuvre via JWT.
 
 Une route POST `/api/auth/signup` :
 * créer un utilisateur en base.
-* retourne le code 201 si l'utilisateur à été créer.
+* retourne le code 201 si l'utilisateur a été créer.
 * retourne le code 400 si l'utilisateur existe déjà.
 * retourne le code 500 en cas d'erreur du serveur.
 
 Une route POST `/api/auth/signin` :
 * récupère en base l'utilisateur et vérifie le mot de passe.
 * génère et retourne un JWT si la vérification est OK.
-* retourne le code 200 si si la vérification est OK.
+* retourne le code 200 si la vérification est OK.
 * retourne le code 401 si l'utilisateur n'existe pas.
-* retourne le code 401 si le mot de passe est incorrects.
+* retourne le code 401 si le mot de passe est incorrect.
 
 Les routes suivantes doivent être sécurisé avec la stratégie JWT de passport :
 * POST `/api/questions`
@@ -128,7 +128,7 @@ Les routes suivantes doivent être sécurisé avec la stratégie JWT de passport
 
 ## Middleware d'erreurs
 
-La gestion des erreurs devra se faire un middleware dédié à cette usage. Chaque erreur détécté dans un service ou une route sera déléguée au middleware d'erreur, les codes retour http d'erreur (>= 400) ne seront plus renvoyé les routes mais par ce middleware.
+La gestion des erreurs devra se faire un middleware dédié à cet usage. Chaque erreur détecté dans un service ou une route sera déléguée au middleware d'erreur, les codes retour http d'erreur (>= 400) ne seront plus renvoyé par les routes mais par ce middleware.
 
 ### RESSOURCES : NodeJS 
 * [Correction Checkpoint (découpe controller/service)](https://github.com/WildCodeSchool/promo-0918-checkpoint3-js/tree/tours-correction)
