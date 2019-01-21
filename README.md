@@ -69,7 +69,7 @@ Une route POST `/api/questions` :
 * retourne la questions inséré en base à l'utilisateur (avec l'id).
 * retourne le code 201 si succès.
 * retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
-* retourne le code 500 en cas d'erreur du serveur.
+* ~~retourne le code 500 en cas d'erreur du serveur.~~
 
 Une route PUT `/api/questions/:id` :
 * mise à jour d'une question en base
@@ -77,14 +77,14 @@ Une route PUT `/api/questions/:id` :
 * retourne le code 200 si succès.
 * retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
 * retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
-* retourne le code 500 en cas d'erreur du serveur.
+* ~~retourne le code 500 en cas d'erreur du serveur.~~
 
 Une route DELETE `/api/questions/:id`:
 * supprime une question en base
 * retourne le code 204 si succès.
 * retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
 * retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
-* retourne le code 500 en cas d'erreur du serveur.
+* ~~retourne le code 500 en cas d'erreur du serveur.~~
 
 ### Create Read Update Delete => categories
 Une route GET `/api/categories` :
@@ -96,7 +96,7 @@ Une route POST `/api/categories` :
 * retourne la categories inséré en base à l'utilisateur (avec l'id).
 * retourne le code 201 si succès.
 * retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
-* retourne le code 500 en cas d'erreur du serveur.
+* ~~retourne le code 500 en cas d'erreur du serveur.~~
 
 Une route PUT `/api/categories/:id` :
 * mise à jour d'une categorie en base
@@ -104,14 +104,14 @@ Une route PUT `/api/categories/:id` :
 * retourne le code 200 si succès.
 * retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
 * retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
-* retourne le code 500 en cas d'erreur du serveur.
+* ~~retourne le code 500 en cas d'erreur du serveur.~~
 
 Une route DELETE `/api/categories/:id`:
 * supprime une categorie en base.
 * retourne le code 204 si succès.
 * retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
 * retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
-* retourne le code 500 en cas d'erreur du serveur.
+* ~~retourne le code 500 en cas d'erreur du serveur.~~
 
 ### Signin/Signup et sécurité => authentication
 La sécurité sera mise en oeuvre via JWT.
@@ -120,7 +120,7 @@ Une route POST `/api/auth/signup` :
 * créer un utilisateur en base.
 * retourne le code 201 si l'utilisateur a été créer.
 * retourne le code 400 si l'utilisateur existe déjà.
-* retourne le code 500 en cas d'erreur du serveur.
+* ~~retourne le code 500 en cas d'erreur du serveur.~~
 
 Une route POST `/api/auth/signin` :
 * récupère en base l'utilisateur et vérifie le mot de passe.
