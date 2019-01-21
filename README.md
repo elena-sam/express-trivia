@@ -82,7 +82,7 @@ Une route PUT `/api/questions/:id` :
 Une route DELETE `/api/questions/:id`:
 * supprime une question en base
 * retourne le code 204 si succès.
-* retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
+* retourne le code 400 si les données ne sont pas correctes pour la suppression.
 * retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
 * ~~retourne le code 500 en cas d'erreur du serveur.~~
 
@@ -109,7 +109,7 @@ Une route PUT `/api/categories/:id` :
 Une route DELETE `/api/categories/:id`:
 * supprime une categorie en base.
 * retourne le code 204 si succès.
-* retourne le code 400 si les données ne sont pas correctes pour l'enregistrement.
+* retourne le code 400 si les données ne sont pas correctes pour la suppression.
 * retourne le code 404 si la question ayant l'id en paramètre n'existe pas en base.
 * ~~retourne le code 500 en cas d'erreur du serveur.~~
 
