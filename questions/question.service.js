@@ -23,6 +23,7 @@ function insertOne(data) {
             }
         });
     });
+    return promise;
 }
 
 function changeOne(id, data) {
@@ -35,6 +36,7 @@ function changeOne(id, data) {
             }
         });
     });
+    return promise;
 }
 
 function deleteOne(id) {
@@ -47,6 +49,7 @@ function deleteOne(id) {
             }
         });
     });
+    return promise;
 }
 
 
